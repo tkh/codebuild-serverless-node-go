@@ -140,4 +140,7 @@ RUN set -ex \
     && wget "https://github.com/golang/dep/releases/download/v$DEP_VERSION/$DEP_BINARY" -O "$GOPATH/bin/dep" \
     && chmod +x "$GOPATH/bin/dep"
 
+ENV PATH="$GOPATH/bin:/usr/local/go/bin:$PATH"
+WORKDIR $GOPATH
+
 ENTRYPOINT ["dockerd-entrypoint.sh"]
